@@ -10,16 +10,13 @@ module.exports = {
 		.setName('help')
 		.setDescription('Lists commands for the bot'),
 	async execute(interaction) {
-		const commandFiles = fs.readdirSync(__dirname).filter(file => file.endsWith('.js'));
 		const embed = new MessageEmbed()
 		embed.setTitle("Help")
-        embed.setAuthor("Alan")
         embed.setDescription("Here are my commands")
-		for (const command of commandFiles) {
-			console.log(command.name)
-			console.log(command.description)
-			embed.addField(command.name, command.description, false)
-		}
+		embed.addField("cat", "Returns a cat image")
+		embed.addField("echo", "Sends inputted text messages")
+		embed.addField("ping", "Basic command. Returns ping")
+		embed.addField("quote", "Returns a zen quote")
         await interaction.reply({embeds: [embed], ephemeral: false });
 	},
 };
