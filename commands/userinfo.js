@@ -11,10 +11,10 @@ module.exports = {
             option
 			.setName('user')
 			.setDescription('The user you want to get their info with')
-			.setRequired(true)
+			.setRequired(false)
         ),
 	async execute(interaction) {
-        const member = interaction.options.getUser("user");
+        const member = interaction.options.getUser("user") || interaction.user;
 		const userInfo = new MessageEmbed()
         userInfo.setTitle(member.username)
 		userInfo.addField("ID", `${member.id}`)
