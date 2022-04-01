@@ -12,6 +12,7 @@ module.exports = {
         serverInfo.setTitle(interaction.guild.name)
 		serverInfo.addField("Members", `${interaction.guild.memberCount}`)
 		serverInfo.addField("NSFW Level", interaction.guild.nsfwLevel)
+		serverInfo.addField("Creation date", `${interaction.guild.createdAt}`)
         await interaction.reply({embeds: [serverInfo], ephemeral: false });
 	},
 };

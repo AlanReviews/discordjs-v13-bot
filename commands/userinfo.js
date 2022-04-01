@@ -16,8 +16,10 @@ module.exports = {
 	async execute(interaction) {
         const member = interaction.options.getUser("user") || interaction.user;
 		const userInfo = new MessageEmbed()
-        userInfo.setTitle(member.username)
+        userInfo.setTitle(member.username).setThumbnail(member.displayAvatarURL())
 		userInfo.addField("ID", `${member.id}`)
+		userInfo.addField("Created at", `${member.createdAt}`)
+		userInfo.addField("Bot", `${member.bot}`)
         await interaction.reply({embeds: [userInfo], ephemeral: false });
 	},
 };
