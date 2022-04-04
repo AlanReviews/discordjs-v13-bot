@@ -1,7 +1,5 @@
 const { SlashCommandBuilder, channelMention } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const fs = require('fs');
-const path = require('path');
 
 module.exports = {
 	name: 'help',
@@ -17,6 +15,7 @@ module.exports = {
 		embed.addField("echo", "Sends inputted text messages")
 		embed.addField("ping", "Basic command. Returns ping")
 		embed.addField("quote", "Returns a zen quote")
+		embed.addField("eightball", "Predict the future by asking a question")
         await interaction.reply({embeds: [embed], ephemeral: false });
 	},
 };

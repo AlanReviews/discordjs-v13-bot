@@ -20,6 +20,15 @@ module.exports = {
 		userInfo.addField("ID", `${member.id}`)
 		userInfo.addField("Created at", `${member.createdAt}`)
 		userInfo.addField("Bot", `${member.bot}`)
+		try {
+			const presence = member.presence.activities.find(a => a.type === "CUSTOM")
+			console.log(presence)
+			userInfo.addField("Custom Presence", presence)
+		} 
+		catch (error) {
+			console.log(error)
+			userInfo.addField("Custom Presence", "n/a")
+		}
         await interaction.reply({embeds: [userInfo], ephemeral: false });
 	},
 };

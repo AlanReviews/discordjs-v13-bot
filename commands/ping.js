@@ -5,7 +5,7 @@ module.exports = {
 	description: 'Basic command. Check latency times in milliseconds',
 	data: new SlashCommandBuilder()
 		.setName('ping')
-		.setDescription('Replies with Pong!'),
+		.setDescription('Replies with Pong and latency times.'),
 	async execute(interaction) {
 		await interaction.reply(`Latency is ${Date.now() - interaction.createdTimestamp} ms.`);
 	},
