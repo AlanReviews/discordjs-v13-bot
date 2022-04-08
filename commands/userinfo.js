@@ -15,7 +15,6 @@ module.exports = {
         ),
 	async execute(interaction) {
         const member = interaction.options.getUser("user") || interaction.user;
-		console.log(member)
 		const userInfo = new MessageEmbed()
         userInfo.setTitle(member.username).setThumbnail(member.displayAvatarURL())
 		userInfo.addField("ID", `${member.id}`)
