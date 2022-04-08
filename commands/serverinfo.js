@@ -10,8 +10,10 @@ module.exports = {
 	async execute(interaction) {
 		const serverInfo = new MessageEmbed()
         serverInfo.setTitle(interaction.guild.name)
+		serverInfo.setThumbnail(interaction.guild.iconURL())
 		serverInfo.addField("Members", `${interaction.guild.memberCount}`)
 		serverInfo.addField("NSFW Level", interaction.guild.nsfwLevel)
+		serverInfo.addField("Explicit content filteer", interaction.guild.explicitContentFilter)
 		serverInfo.addField("Creation date", `${interaction.guild.createdAt}`)
         await interaction.reply({embeds: [serverInfo], ephemeral: false });
 	},
